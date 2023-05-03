@@ -75,7 +75,7 @@ st.markdown('***')
 st.markdown("##### Faites votre analyse")
 choix1, choix2 = st.columns(2)
 
-var1 = choix1.selectbox("Variable 1",data.columns)
+var1 = choix1.selectbox("Variable 1",['Satisfaction','derniere_evaluation','Nombre_de_projets','Nombre_heures_mensuelles_moyenne','Temps_passe_dans_entreprise'])
 var2 = choix2.selectbox("Variable 2",data.columns)
 
 
@@ -100,7 +100,7 @@ fig1.update_layout(
     xaxis_title=var2,
     yaxis=dict(title=f"Moyenne de {var1}"),
     yaxis2=dict(title=f"Effectif de {var1}", overlaying='y', side='right'),
-    legend=dict(x=0, y=1, traceorder="normal")
+    legend=dict(x=0, y=1, traceorder="normal", xanchor='right', yanchor='top')
 )
 
 st.plotly_chart(fig1, theme="streamlit", use_container_width=True)
