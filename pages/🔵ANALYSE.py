@@ -99,8 +99,8 @@ fig1.update_layout(
     title=f"Moyenne et effectif de {var1} en fonction de {var2}",
     xaxis_title=var2,
     yaxis=dict(title=f"Moyenne de {var1}"),
-    yaxis2=dict(title=f"Effectif de {var1}", overlaying='y', side='right'),
-    legend=dict(x=0, y=1, traceorder="normal", xanchor='right', yanchor='top')
+    yaxis2=dict(title=f"Effectif de {var1}", overlaying='y', side='right')
+    # legend=dict(x=0, y=1, traceorder="normal", xanchor='right', yanchor='top')
 )
 
 st.plotly_chart(fig1, theme="streamlit", use_container_width=True)
