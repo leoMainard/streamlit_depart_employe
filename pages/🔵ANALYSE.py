@@ -58,7 +58,7 @@ cat_cols = ['Accident_du travail', 'promotion_5_dernieres_annees', 'Service', 'n
 filtre_categorique = col1.selectbox("Sélectionnez une variable catégorielle.", cat_cols)
 
 fig_cat = plt.figure()
-ax = sns.countplot(x=filtre_categorique, hue="depart", data=data, palette=["orange", "blue"])
+ax = sns.countplot(x=filtre_categorique, hue="depart", data=data, palette=["#f6bd60", "#8ecae6"])
 ax.legend(title='depart', labels=['negative', 'positive'])
 col1.pyplot(fig_cat)
 
