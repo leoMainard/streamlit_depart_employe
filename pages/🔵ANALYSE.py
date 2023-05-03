@@ -91,7 +91,7 @@ fig1.add_trace(
 
 # Ajouter la deuxième ligne pour le nombre avec un deuxième axe y
 fig1.add_trace(
-    go.Scatter(x=df_count[var2], y=df_count['nombre'], name='Nombre', yaxis='y2')
+    go.Scatter(x=df_count[var2], y=df_count['nombre'], name='Effectif', yaxis='y2')
 )
 
 # Configurer les axes et ajouter des légendes
@@ -100,7 +100,6 @@ fig1.update_layout(
     xaxis_title=var2,
     yaxis=dict(title=f"Moyenne de {var1}"),
     yaxis2=dict(title=f"Effectif de {var1}", overlaying='y', side='right')
-    # legend=dict(x=0, y=1, traceorder="normal", xanchor='right', yanchor='top')
 )
 
 st.plotly_chart(fig1, theme="streamlit", use_container_width=True)
