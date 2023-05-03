@@ -50,7 +50,7 @@ st.info('Objectif : comprendre le jeu de données.')
 
 st.markdown('##### A travers notre fichier “depart_employes.csv” nous allons essayer d’expliquer et de prédire la variable “départ”.')
 st.dataframe(resumetable(data))
-st.write("On a donc 9 variables explicatives et 1 variable à expliquer : depart. Cette variable prendre la valeur 0 si "
+st.write("On a donc 9 variables explicatives et 1 variable à expliquer : depart. Cette variable prendre la valeur 1 si "
          "l'employé a quitté l'entreprise, 0 si ce n'est pas le cas")
 
 
@@ -73,7 +73,7 @@ st.pyplot(fig)
 
 
 st.markdown('***')
-st.markdown("##### Quelle est la proportion de départ de maintient dans nos données ?")
+st.markdown("##### Quelle est la proportion de départ dans nos données ?")
 proportion = data['depart'].value_counts(normalize=True)
 prop1 , prop2 = st.columns(2)
 prop1.metric('Employés qui restent', f"{round(proportion[0],2)}%")

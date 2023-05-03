@@ -15,7 +15,7 @@ data = pd.read_csv(r'./depart_employes.csv', sep=";")
 
 # ----------------------------------------------------------------------- ANALYSE DES DONNEES
 st.title('Analyse des données')
-st.info('Objectif : analyser le jeu de données, la distribution, leur relations.')
+st.info('Objectif : analyser le jeu de données, la distribution, leurs relations.')
 
 
 
@@ -30,7 +30,7 @@ cat_cols=list(data.columns)[-3:-1]
 
 
 st.markdown("##### Observons nos données numériques : ")
-filtre_numerique = st.selectbox("Sélectionner une colonne numérique.", ['Satisfaction','derniere_evaluation','Nombre_de_projets','Nombre_heures_mensuelles_moyenne','Temps_passe_dans_entreprise'])
+filtre_numerique = st.selectbox("Sélectionnons une variable numérique.", ['Satisfaction','derniere_evaluation','Nombre_de_projets','Nombre_heures_mensuelles_moyenne','Temps_passe_dans_entreprise'])
 
 # --------------------------------------------- Répartition des variables numériques
 graph_num1, graph_num2 = st.columns(2)
@@ -49,16 +49,17 @@ graph_num2.pyplot(fig_graphNum2)
 
 st.markdown('***')
 
-
+st.markdown("##### Observons nos données catégorielles : ")
 col1, col2 = st.columns(2)
 
 # Sélectionner les variables catégorielles
 cat_cols = ['Accident_du travail', 'promotion_5_dernieres_annees', 'Service', 'niveau_salaire']
 
-filtre_categorique = col1.selectbox("Sélectionner une colonne catégorielle.", cat_cols)
+filtre_categorique = col1.selectbox("Sélectionnez une variable catégorielle.", cat_cols)
 
 fig_cat = plt.figure()
 ax = sns.countplot(x=filtre_categorique, hue="depart", data=data)
+ax.legend(title='depart', labels=['positive', 'negative'])
 col1.pyplot(fig_cat)
 
 
@@ -95,10 +96,10 @@ fig1.add_trace(
 
 # Configurer les axes et ajouter des légendes
 fig1.update_layout(
-    title=f"Moyenne et nombre de {var1} en fonction de {var2}",
+    title=f"Moyenne et effectif de {var1} en fonction de {var2}",
     xaxis_title=var2,
     yaxis=dict(title=f"Moyenne de {var1}"),
-    yaxis2=dict(title=f"Nombre de {var1}", overlaying='y', side='right'),
+    yaxis2=dict(title=f"Effectif de {var1}", overlaying='y', side='right'),
     legend=dict(x=0, y=1, traceorder="normal")
 )
 
